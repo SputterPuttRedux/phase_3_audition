@@ -1,13 +1,22 @@
 <div class="container">
 
-  <h1>ALL MOVIES</h1>
+  <h1>RANKED MOVIES:</h1>
 
-  <% @movies.each do |movie| %>
-  <ul>
-    <li><%= movie.name %></li>
-    <li><%= movie.rating %></li>
-  </ul>
+
+  <table>
+    <tr>
+      <th>Movie Title</th>
+      <th>Genre</th>
+      <th>Ranking</th>
+    </tr>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><a href="/movie/<%= movie.id %>"><%= movie.name %></a></td>
+        <td><%= movie.genres.first.name %></td>
+        <td><%= movie.rating %></td>
+      </tr>
   <% end %>
+</table>
 
   <% if !current_user %>
     <div id="out-message">
