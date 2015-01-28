@@ -55,6 +55,8 @@ end
 post '/user/:id/add' do
   user = User.find_by(id: params[:id])
   movie = Movie.create(params[:movie])
+  genre = Genre.create(params[:genre])
+  movie.genres << genre
   user.movies << movie
   redirect "/user/#{user.id}"
 end
@@ -69,6 +71,7 @@ end
 put '/user/:id/:name' do
   movie = Movie.find_by(name: params[:name])
   movie.update(params[:movie])
+  movie.genres.first.update(params[:genre])
   user = User.find(movie.user_id)
   redirect "/user/#{user.id}"
 end
