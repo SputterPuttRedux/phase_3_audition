@@ -1,3 +1,6 @@
 class User < ActiveRecord::Base
- has_many :movies
+  validates :name, :presence => true
+  validates :password, :presence => true
+
+  has_many :movies
 end
