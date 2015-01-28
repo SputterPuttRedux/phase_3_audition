@@ -22,6 +22,12 @@ post '/login' do
   # else
     # redirect '/login'
   # end
+  if request.xhr?
+    erb :'login', layout: false
+  else
+    redirect '/login'
+  end
+
 end
 
 get '/signup' do
