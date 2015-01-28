@@ -18,7 +18,7 @@ post '/login' do
 end
 
 get '/signup' do
-  erb :sign_up
+  erb :signup
   #sign up form
 end
 
