@@ -47,14 +47,20 @@ get '/logout' do
 end
 
 #-------------USERS---------------
-get '/user/:id' do
-  #show basic user profile
+get '/user/:id/add' do
   @user = User.find_by(id: params[:id])
-  erb :'user/dashboard'
+  erb :'/user/add-movie'
 end
 
+post '/user/:id/add' do
+  user = User.find_by(id: params[:id])
+  movie = Movie.create(params[:movie])
+  user.movies << movie
+  redirect "/user/#{user.id}"
+end
 
 get '/user/:id/:name' do
+  #naming is not intuitive, but this edits a particular movie
   @user = User.find_by(id: params[:id])
   @movie = Movie.find_by(name: params[:name])
   erb :'/user/edit-movie'
@@ -66,6 +72,14 @@ put '/user/:id/:name' do
   user = User.find(movie.user_id)
   redirect "/user/#{user.id}"
 end
+
+
+get '/user/:id' do
+  #show user dashboard
+  @user = User.find_by(id: params[:id])
+  erb :'user/dashboard'
+end
+
 
 post '/user/:id/delete' do
   #delete user profile
