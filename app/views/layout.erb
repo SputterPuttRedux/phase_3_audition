@@ -25,7 +25,8 @@
     <p> PLACE A COOL HEADER HERE </p>
     <div id="login-toolbar">
       <% if current_user %>
-        <p> Welcome: <%= current_user.name %></p>
+        <p> Welcome: <%= current_user.name %> | Go to <a href="user/<%=current_user.id %>">dashboard</a></p>
+
         <a href="/logout">Logout</a>
       <% else %>
         <a href="/login">Login</a>
