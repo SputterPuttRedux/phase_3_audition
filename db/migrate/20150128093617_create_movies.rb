@@ -3,7 +3,7 @@ class CreateMovies < ActiveRecord::Migration
     create_table :movies do |t|
       t.string :name
       t.text :description
-      t.integer :rating
+      t.integer :rating, default: 0
       t.references :user
     end
   end
