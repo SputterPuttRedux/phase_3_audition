@@ -1,0 +1,11 @@
+<div id="edit-movie">
+
+  <form action='/user/<%= @user.id %>/<%= @movie.name %>' method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text" name="movie[name]" value="<%= @movie.name %>"><br>
+    <input type="text" name="movie[description]" value="<%= @movie.description %>"><br>
+    <input type="text" name="movie[rating]" value="<%= @movie.rating %>"><br>
+    <input type="submit">
+  </form>
+
+</div>
