@@ -10,7 +10,7 @@
     </tr>
     <% @user.movies.each do |movie| %>
     <tr>
-        <td><%= movie.name %></td>
+        <td><a href="/movie/<%= movie.id %>"><%= movie.name %></a></td>
         <td><%= movie.rating %></td>
         <td><%= movie.genres.first.name %></td>
         <td><a href="/user/<%= @user.id %>/<%= movie.name %>">EDIT</a></td>
