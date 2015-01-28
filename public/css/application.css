@@ -69,3 +69,8 @@ code {
 ul {
     list-style-type: none;
 }
+
+#auth-container {
+    border: 1px dashed black;
+    margin: auto;
+}
