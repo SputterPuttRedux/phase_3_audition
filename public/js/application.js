@@ -10,9 +10,13 @@ $(document).ready(function() {
       url: $target.attr('href'),
       dataType: 'html'
     }).done(function(response){
-      // debugger
-      $target.closest('#content').children('#pop-in').html(response);
+      $resp = $(response).children('#auth-container')
+      $target.closest('#content').children('#pop-in').html($resp);
+      debugger
     });
+
+    $('#content').css("backgroundColor","#888877")
+
 
   });
 
