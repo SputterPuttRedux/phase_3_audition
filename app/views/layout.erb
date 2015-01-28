@@ -29,10 +29,11 @@
 
         <a href="/logout">Logout</a>
       <% else %>
-        <a href="/login">Login</a>
+        <a href="/login" id="login-link">Login</a>
         <a href="/signup">Signup</a>
       <% end %>
   </header>
+  <div id="pop-in"></div>
   <%= yield %>
 </div>
 </body>
