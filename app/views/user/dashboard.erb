@@ -1,20 +1,26 @@
-<div id="#dashboard">
+<div id="dashboard">
   <h1><%= @user.name %>'s Movies: </h1>
 
   <table>
     <tr>
       <th>Title</th>
       <th>Rating</th>
+      <th>Genre</th>
       <th>Edit<th>
     </tr>
     <tr>
       <% @user.movies.each do |movie| %>
         <td><%= movie.name %></td>
         <td><%= movie.rating %></td>
+        <td><%= movie.genres.first.name %></td>
         <td><a href="/user/<%= @user.id %>/<%= movie.name %>">EDIT</a></td>
       <% end %>
     </tr>
 
   </table>
+
+  <div id="add-movie">
+    <a href="/user/<%= @user.id %>/add">ADD MOVIE</a>
+  </div>
 
 </div>
