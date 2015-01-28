@@ -4,14 +4,14 @@
   <table>
     <tr>
       <th>Title</th>
-      <th>Rating></th>
+      <th>Rating</th>
       <th>Edit<th>
     </tr>
     <tr>
       <% @user.movies.each do |movie| %>
         <td><%= movie.name %></td>
         <td><%= movie.rating %></td>
-        <td><a href="">EDIT_LINK</a></td>
+        <td><a href="/user/<%= @user.id %>/<%= movie.name %>">EDIT</a></td>
       <% end %>
     </tr>
 
