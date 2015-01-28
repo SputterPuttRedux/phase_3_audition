@@ -8,15 +8,14 @@
       <th>Genre</th>
       <th>Edit<th>
     </tr>
+    <% @user.movies.each do |movie| %>
     <tr>
-      <% @user.movies.each do |movie| %>
         <td><%= movie.name %></td>
         <td><%= movie.rating %></td>
         <td><%= movie.genres.first.name %></td>
         <td><a href="/user/<%= @user.id %>/<%= movie.name %>">EDIT</a></td>
-      <% end %>
     </tr>
-
+    <% end %>
   </table>
 
   <div id="add-movie">
