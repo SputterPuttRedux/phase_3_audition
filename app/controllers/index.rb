@@ -1,4 +1,5 @@
 get '/' do
+  @movies = Movie.all
   erb :index
 end
 
@@ -14,7 +15,13 @@ end
 
 post '/login' do
   #create a new session w/ conditional logic
-  redirect '/'
+  user = User.find_by(name: params[:user][:name])
+  # if user.try(:authenticate, params[:user][:password])
+    session[:user_id] = user.id
+    redirect '/'
+  # else
+    # redirect '/login'
+  # end
 end
 
 get '/signup' do
