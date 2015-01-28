@@ -16,12 +16,13 @@ end
 post '/login' do
   #create a new session w/ conditional logic
   user = User.find_by(name: params[:user][:name])
-  # if user.try(:authenticate, params[:user][:password])
+  if user.try(:authenticate, params[:user][:password])
     session[:user_id] = user.id
     redirect "/user/#{user.id}"
-  # else
-    # redirect '/login'
-  # end
+  else
+    redirect '/login'
+   end
+
   if request.xhr?
     erb :'login', layout: false
   else
@@ -44,7 +45,7 @@ post '/signup' do
    else
      redirect "/signup"
    end
-  redirect '/'
+
 end
 
 get '/logout' do
