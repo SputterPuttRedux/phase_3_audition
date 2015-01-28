@@ -88,10 +88,12 @@ post '/user/:id/delete' do
   #delete user profile
 end
 
-
 #----------------MOVIES--------------------
 
-
+get '/movie/:id' do
+  @movie = Movie.find_by(id: params[:id])
+  erb :'movie/show'
+end
 
 
 
