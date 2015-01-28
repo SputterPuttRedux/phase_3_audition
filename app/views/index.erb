@@ -1,0 +1,18 @@
+<div class="container">
+
+  <h1>ALL MOVIES</h1>
+
+  <% @movies.each do |movie| %>
+  <ul>
+    <li><%= movie.name %></li>
+    <li><%= movie.rating %></li>
+  </ul>
+  <% end %>
+
+  <% if !current_user %>
+    <div id="out-message">
+      <p>thanks for visiting!<p>
+    </div>
+  <% end %>
+
+</div>
