@@ -47,19 +47,32 @@ get '/logout' do
 end
 
 #-------------USERS---------------
-
 get '/user/:id' do
   #show basic user profile
   @user = User.find_by(id: params[:id])
   erb :'user/dashboard'
 end
 
-post '/user/:id/edit' do
+
+get '/user/:id/:name' do
+  @user = User.find_by(id: params[:id])
+  @movie = Movie.find_by(name: params[:name])
+  erb :'/user/edit-movie'
+end
+
+put '/user/:id/:name' do
+  movie = Movie.find_by(name: params[:name])
+  movie.update(params[:movie])
+  user = User.find(movie.user_id)
+  redirect "/user/#{user.id}"
 end
 
 post '/user/:id/delete' do
   #delete user profile
 end
+
+
+#----------------MOVIES--------------------
 
 
 
