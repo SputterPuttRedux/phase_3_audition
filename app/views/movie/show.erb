@@ -6,4 +6,10 @@
       <li>Description: <%= @movie.description %></li>
       <li>Rating: <%= @movie.rating %></li>
     </ul>
+
+    <% if current_user %>
+    <div>
+      <p><a href="/user/<%= current_user.id %>/<%= @movie.name %>">Edit this movie</a></p>
+    </div>
+    <% end %>
 </div>
