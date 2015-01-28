@@ -1,6 +1,6 @@
 /* CSS declarations go here */
-body {font-family: Vollkorn; font-size: 160%; line-height: 160%; }
-h1, h2, h3, h4, h5, h6 {font-family: Georgia; line-height:100%; margin-top: 0.5em; margin-bottom: 0.5em; color: #36AECC; font-style: italic; font-weight: 400;}
+body {font-family: Oswald; font-size: 160%; line-height: 160%; }
+h1, h2, h3, h4, h5, h6 {font-family: "Slabo 27px"; line-height:100%; margin-top: 0.5em; margin-bottom: 0.5em; color: #55BDAA; font-style: italic; font-weight: 400;}
 h1 {font-size: 1.8em;}
 h2 {font-size: 1.6em;}
 h3 {font-size: 1.4em;}
@@ -26,52 +26,80 @@ del {text-decoration: line-through; color: #777777;}
 .justcenter {text-align: center;}
 .center {margin-left: auto; margin-right: auto;}
 
-footer { font-size: 0.7em; margin-top: 2em;}
+ header {
+    height: 75px;
+ }
 
-#content { margin: 0 auto; padding: 0 1em; max-width: 37em; position: relative; width: 61.8%;}
+#content {
+    margin: 0 auto;
+    padding: 0 1em;
+    max-width: 37em;
+    position: relative;
+    width: 61.8%;
+}
 
 a {
-    color: #36AECC;
+    color: #55BDAA;
     text-decoration: none;
 }
 
 a:visited {
-    color: #AAA;
+    color: #97E6AF;
 }
 
 a:hover {
-    color: #000;
-    text-decoration: underline;
+    color: #1E408A;
+    text-decoration: none;
 }
 
 .logo {
   height: 2em;
 }
 
-code {
-    font-family: Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
-    -webkit-border-radius: 1px;
-    -moz-border-radius: 1px;
-    border-radius: 1px;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    padding: 0px 3px;
-    display: inline-block;
-    color: #52595d;
-    background-color: #E8F2F5;
-    font-size: 40%;
-    line-height: 1.4em;
-    margin-left: -1em;
-    overflow: auto;
-}
-
 ul {
     list-style-type: none;
 }
 
-#auth-container {
-    border: 1px dashed black;
+.auth-container {
+    border: 1px dashed gray;
     margin: auto;
     background-color: white;
+    border-radius: 25px;
+
+}
+
+.auth-form {
+    background-color: #f7f7f7;
+
+}
+
+
+
+#add-movie {
+    text-align: left;
+}
+
+header p {
+    display:inline-block;
+    margin: auto;
+}
+
+#login-toolbar {
+    display: inline;
+    float: right;
+    padding-right: 15px;
+}
+
+#home-logo {
+    float: left;
+    display: inline;
+}
+
+#pop-in {
+    width: 400px;
+    margin: auto
+}
+
+.auth-form input {
+    height: 35px;
 }
