@@ -18,7 +18,7 @@ post '/login' do
   user = User.find_by(name: params[:user][:name])
   # if user.try(:authenticate, params[:user][:password])
     session[:user_id] = user.id
-    redirect '/'
+    redirect "/user/#{user.id}"
   # else
     # redirect '/login'
   # end
@@ -50,6 +50,8 @@ end
 
 get '/user/:id' do
   #show basic user profile
+  @user = User.find_by(id: params[:id])
+  erb :'user/dashboard'
 end
 
 post '/user/:id/edit' do
