@@ -5,7 +5,8 @@ dionne = User.create(
 
 baby = Movie.create(
   name: "Adventures in Babysitting",
-  description: "A lifetime of fun. In just one night"
+  description: "A lifetime of fun. In just one night",
+  rating: 5
   )
 
 live_action = Genre.create(
