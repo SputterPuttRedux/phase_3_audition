@@ -59,14 +59,16 @@ get '/user/:id/add' do
   erb :'/user/add-movie'
 end
 
-post '/user/:id/add' do
-  user = User.find_by(id: params[:id])
+#sketch, may not run... :)
+post '/movies' do
   movie = Movie.create(params[:movie])
-  genre = Genre.create(params[:genre])
+  user = current_user
+  genre = Genre.create(params[:genre]) # maybe genre = Genre.find_by(name: genre-name) || Genre.create(name: genre-name)
   movie.genres << genre
   user.movies << movie
-  redirect "/user/#{user.id}"
+  redirect "/movies/#{movie.id}/show"
 end
+
 
 get '/user/:id/:name' do
   #naming is not intuitive, but this edits a particular movie
@@ -107,9 +109,4 @@ get '/movie/:id' do
   @movie = Movie.find_by(id: params[:id])
   erb :'movie/show'
 end
-
-
-
-
-
 
