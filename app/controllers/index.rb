@@ -21,7 +21,7 @@ post '/login' do
     redirect "/user/#{user.id}"
   else
     redirect '/login'
-   end
+  end
 
   if request.xhr?
     erb :'login', layout: false
@@ -83,16 +83,22 @@ put '/user/:id/:name' do
   redirect "/user/#{user.id}"
 end
 
+delete '/delete/:name' do
+  Movie.find_by(name: params[:name]).destroy
+
+  if request.xhr?
+    "deleted"
+  else
+    redirect "/"
+  end
+
+end
+
 
 get '/user/:id' do
   #show user dashboard
   @user = User.find_by(id: params[:id])
   erb :'user/dashboard'
-end
-
-
-post '/user/:id/delete' do
-  #delete user profile
 end
 
 #----------------MOVIES--------------------
@@ -101,6 +107,8 @@ get '/movie/:id' do
   @movie = Movie.find_by(id: params[:id])
   erb :'movie/show'
 end
+
+
 
 
 
