@@ -16,7 +16,7 @@
         <td><%= movie.genres.first.name %></td>
         <td><a href="/user/<%= @user.id %>/<%= movie.name %>">EDIT</a></td>
         <td>
-          <form action="/delete/<%= movie.name %>" method="POST">
+          <form action="/delete/<%= movie.name %>" method="POST" id="delete-button">
             <input type="hidden" name="_method" value="DELETE">
             <input type="submit" value="delete">
           </form>
