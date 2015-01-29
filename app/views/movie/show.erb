@@ -7,6 +7,13 @@
       <li>Rating: <%= @movie.rating %></li>
     </ul>
 
+    <div id="all-genres">
+      <p>ALL GENRES FOR THIS MOVIE:</p>
+      <% @movie.genres.each do |gen|%>
+        <p><%= gen.name %></p>
+      <% end %>
+    </div>
+
     <% if current_user %>
     <div>
       <p><a href="/user/<%= current_user.id %>/<%= @movie.name %>">Edit this movie</a></p>
