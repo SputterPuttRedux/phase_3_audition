@@ -10,6 +10,12 @@
     <% if current_user %>
     <div>
       <p><a href="/user/<%= current_user.id %>/<%= @movie.name %>">Edit this movie</a></p>
+      <p>
+        <form action="/delete/<%= @movie.name %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="delete">
+        </form> this movie.
+      </p>
     </div>
     <% end %>
 </div>
